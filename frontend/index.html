@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>3-Tier App</title>
+  <style>
+    body { font-family: system-ui, Arial; max-width: 720px; margin: 40px auto; }
+    input, button { padding: 8px; font-size: 16px; }
+    ul { padding-left: 20px; }
+  </style>
+</head>
+<body>
+  <h2>Submit Text</h2>
+  <input id="textInput" type="text" placeholder="Enter text" />
+  <button onclick="submitText()">Submit</button>
+
+  <h3>Stored Texts</h3>
+  <ul id="textList"></ul>
+
+  <script>
+    async function submitText() {
+      const text = document.getElementById('textInput').value.trim();
+      if (!text) return;
+      await fetch('/api/add', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ content: text })
+      });
+      document.getElementById('textInput').value = '';
+      loadTexts();
+    }
+
+    async function loadTexts() {
+      const res = await fetch('/api/list');
+      const data = await res.json();
+      const list = document.getElementById('textList');
+      list.innerHTML = '';
+      data.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.id}: ${item.content}`;
+        list.appendChild(li);
+      });
+    }
+
+    loadTexts();
+  </script>
+</body>
+</html>
