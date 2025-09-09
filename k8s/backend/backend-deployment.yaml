@@ -2,34 +2,46 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend
-  labels: { app: backend }
+  labels:
+    app: backend
 spec:
   replicas: 1
   selector:
-    matchLabels: { app: backend }
+    matchLabels:
+      app: backend
   template:
     metadata:
-      labels: { app: backend }
+      labels:
+        app: backend
     spec:
       containers:
-      - name: backend
-        image: ghcr.io/nadzzdan/3tierapp/backend:latest
-        imagePullSecrets:
+        - name: backend
+          image: ghcr.io/nadzzdan/3tierapp/backend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+          env:
+            - name: DB_HOST
+              value: "postgres"
+            - name: DB_PORT
+              value: "5432"
+            - name: DB_NAME
+              value: "mydb"
+            - name: DB_USER
+              value: "myuser"
+            - name: DB_PASSWORD
+              value: "mypassword"
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: 8000
+            initialDelaySeconds: 3
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 10
+      imagePullSecrets:   # ✅ Correct place
         - name: ghcr-secret
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 8000
-        env:
-        - { name: DB_HOST, value: "postgres" }
-        - { name: DB_PORT, value: "5432" }
-        - { name: DB_NAME, value: "mydb" }
-        - { name: DB_USER, value: "myuser" }
-        - { name: DB_PASSWORD, value: "mypassword" }
-        readinessProbe:
-          httpGet: { path: /api/health, port: 8000 }
-          initialDelaySeconds: 3
-          periodSeconds: 5
-        livenessProbe:
-          httpGet: { path: /api/health, port: 8000 }
-          initialDelaySeconds: 10
-          periodSeconds: 10
