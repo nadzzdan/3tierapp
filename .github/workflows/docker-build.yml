@@ -1,0 +1,44 @@
+name: Build and Push Images
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push backend
+        uses: docker/build-push-action@v3
+        with:
+          context: ./backend
+          push: true
+          tags: ghcr.io/${{ github.repository }}/backend:latest
+
+      - name: Build and push frontend
+        uses: docker/build-push-action@v3
+        with:
+          context: ./frontend
+          push: true
+          tags: ghcr.io/${{ github.repository }}/frontend:latest
+
+      - name: Build and push postgres
+        uses: docker/build-push-action@v3
+        with:
+          context: ./database
+          push: true
+          tags: ghcr.io/${{ github.repository }}/postgres:latest

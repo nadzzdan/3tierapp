@@ -1,0 +1,230 @@
+Aug 24 01:01:02 k8-nadz-master systemd[1]: Starting docker.service - Docker Application Container Engine...
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit docker.service has begun execution[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit docker.service has begun execution.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 170.[0m
+Aug 24 01:02:31 k8-nadz-master dockerd[1105]: time="2025-08-24T01:02:31.642117704Z" level=info msg="Starting up"
+Aug 24 01:02:31 k8-nadz-master dockerd[1105]: time="2025-08-24T01:02:31.811903711Z" level=info msg="OTEL tracing is not configured, using no-op tracer provider"
+Aug 24 01:02:31 k8-nadz-master dockerd[1105]: time="2025-08-24T01:02:31.812160135Z" level=info msg="detected 127.0.0.53 nameserver, assuming systemd-resolved, so using resolv.conf: /run/systemd/resolve/resolv.conf"
+Aug 24 01:03:10 k8-nadz-master dockerd[1105]: time="2025-08-24T01:03:10.245863032Z" level=info msg="[graphdriver] using prior storage driver: overlay2"
+Aug 24 01:03:13 k8-nadz-master dockerd[1105]: time="2025-08-24T01:03:13.679859933Z" level=info msg="Loading containers: start."
+Aug 24 01:03:18 k8-nadz-master dockerd[1105]: time="2025-08-24T01:03:18.388235678Z" level=info msg="Default bridge (docker0) is assigned with an IP address 172.17.0.0/16. Daemon option --bip can be used to set a preferred IP address"
+Aug 24 01:03:20 k8-nadz-master dockerd[1105]: time="2025-08-24T01:03:20.562876338Z" level=info msg="Loading containers: done."
+Aug 24 01:03:30 k8-nadz-master dockerd[1105]: time="2025-08-24T01:03:30.083611059Z" level=info msg="Docker daemon" commit="27.5.1-0ubuntu3~24.04.2" containerd-snapshotter=false storage-driver=overlay2 version=27.5.1
+Aug 24 01:03:30 k8-nadz-master dockerd[1105]: time="2025-08-24T01:03:30.088702879Z" level=info msg="Daemon has completed initialization"
+Aug 24 01:03:31 k8-nadz-master dockerd[1105]: time="2025-08-24T01:03:31.395743321Z" level=info msg="API listen on /run/docker.sock"
+Aug 24 01:03:31 k8-nadz-master systemd[1]: Started docker.service - Docker Application Container Engine.
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit docker.service has finished successfully[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit docker.service has finished successfully.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 170.[0m
+Sep 09 09:11:23 k8-nadz-master dockerd[1105]: time="2025-09-09T09:11:23.724483287Z" level=info msg="ignoring event" container=24765443935d998938676238d395acee6fe03351e07a3dd66a4cdc4a6e309c98 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Sep 09 09:11:44 k8-nadz-master dockerd[1105]: time="2025-09-09T09:11:44.652622042Z" level=info msg="Layer sha256:f6ef30cf1e95a146a0655df2fe8626b2b2f5d3b8e8731c2e9b24c588b07e1cfc cleaned up"
+Sep 09 10:44:10 k8-nadz-master dockerd[1105]: time="2025-09-09T10:44:10.057885460Z" level=info msg="Layer sha256:c0605b12ef1a3deaa4d44adfc2daecb9cd7a3d65a95dea9a923c229124ed3c1e cleaned up"
+Sep 09 10:44:12 k8-nadz-master dockerd[1105]: time="2025-09-09T10:44:12.726732591Z" level=info msg="Layer sha256:c0605b12ef1a3deaa4d44adfc2daecb9cd7a3d65a95dea9a923c229124ed3c1e cleaned up"
+Sep 09 10:44:34 k8-nadz-master dockerd[1105]: time="2025-09-09T10:44:34.218333167Z" level=info msg="Layer sha256:43e1b3189850ed15303507f7c2307a8db03cd2acf780dbb3c9f89de1f9c59334 cleaned up"
+Sep 10 07:54:05 k8-nadz-master dockerd[1105]: time="2025-09-10T07:54:05.205899261Z" level=error msg="Not continuing with pull after error: context canceled"
+Sep 10 07:54:05 k8-nadz-master dockerd[1105]: time="2025-09-10T07:54:05.832943624Z" level=info msg="Layer sha256:083d14538064af226ebeb576630335b012be2d315ebd4bb20cc64ffad4231dc4 cleaned up"
+Sep 10 07:54:05 k8-nadz-master dockerd[1105]: time="2025-09-10T07:54:05.833005726Z" level=info msg="Layer sha256:778ce32b2140d6dc50fb774228d8acc53d40a75f8d1d7156c83f43ba9a5dcb7b cleaned up"
+Sep 10 07:54:05 k8-nadz-master dockerd[1105]: time="2025-09-10T07:54:05.835645309Z" level=info msg="Layer sha256:15755404b5b4c4aadbe73058028547ddd1bbbc8f484381be5db370f9fd3b2b1c cleaned up"
+Sep 10 07:54:05 k8-nadz-master dockerd[1105]: time="2025-09-10T07:54:05.845152611Z" level=info msg="Layer sha256:0de4517ed66e0f6e34db97207ca83fec1fe306370cf73611cf67d2a758c57694 cleaned up"
+Sep 10 07:54:05 k8-nadz-master dockerd[1105]: time="2025-09-10T07:54:05.845190512Z" level=info msg="Layer sha256:75d4416405da4b3fd3c79bd046527761401e2d26ecb20b79a60684b896980989 cleaned up"
+Sep 10 07:54:06 k8-nadz-master dockerd[1105]: time="2025-09-10T07:54:06.019529634Z" level=info msg="Layer sha256:f562cde21920f2b53533ec60e9ec14abfdceba3e108d18e8b28a4271f15e3829 cleaned up"
+Sep 10 07:54:06 k8-nadz-master dockerd[1105]: time="2025-09-10T07:54:06.042749170Z" level=info msg="Layer sha256:08000c18d16dadf9553d747a58cf44023423a9ab010aab96cf263d2216b8b350 cleaned up"
+Sep 10 08:06:54 k8-nadz-master dockerd[1105]: time="2025-09-10T08:06:54.436030316Z" level=info msg="Layer sha256:bd8151577407a676faaf63dde44572f4bb09dade87da4e20c985b9b81a0373e2 cleaned up"
+Sep 10 08:06:59 k8-nadz-master dockerd[1105]: time="2025-09-10T08:06:59.860555261Z" level=info msg="ignoring event" container=3f7d4fb4ebe7768e420d4620694a611bac3a6c123bc096662965dd6da7f1625f module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Sep 10 08:08:12 k8-nadz-master dockerd[1105]: time="2025-09-10T08:08:12.260920440Z" level=info msg="ignoring event" container=7c5e03b66ff42ea995e4300bf6916ab8d7139e9c8d655a189da8a10d311c1c9a module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Sep 10 08:13:26 k8-nadz-master dockerd[1105]: time="2025-09-10T08:13:26.866264047Z" level=info msg="ignoring event" container=f71270cf380ab2d4bdd1d23f7017c263939c858a07525fa42cc57e06a59d7483 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Sep 10 08:13:42 k8-nadz-master dockerd[1105]: time="2025-09-10T08:13:42.600059244Z" level=info msg="Layer sha256:bd8151577407a676faaf63dde44572f4bb09dade87da4e20c985b9b81a0373e2 cleaned up"
+Sep 10 08:13:47 k8-nadz-master dockerd[1105]: time="2025-09-10T08:13:47.142376809Z" level=info msg="ignoring event" container=c9c4019e0f0a9874750ede94199749e18d064a4fbddfccb1b0c195863b3be127 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Sep 10 08:13:54 k8-nadz-master dockerd[1105]: time="2025-09-10T08:13:54.226187134Z" level=info msg="ignoring event" container=8c66d7036f39a03e84cb0e0ae6caddf57c3b79e33615bd525fe88755eb9c59f5 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Sep 10 08:15:40 k8-nadz-master dockerd[1105]: time="2025-09-10T08:15:40.238164446Z" level=info msg="ignoring event" container=690ec4747ff4d14220e7db804f00051b8a8cdc3886e2cb5601738146d68a1e23 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Sep 10 08:17:52 k8-nadz-master dockerd[1105]: time="2025-09-10T08:17:52.595884760Z" level=error msg="Handler for GET /v1.47/images/get returned error: context canceled"
+Sep 10 08:18:11 k8-nadz-master dockerd[1105]: time="2025-09-10T08:18:11.109968486Z" level=error msg="Handler for GET /v1.47/images/get returned error: context canceled"
+Sep 12 07:54:20 k8-nadz-master systemd[1]: Stopping docker.service - Docker Application Container Engine...
+[0;38;5;245m░░ [0m[0;32mSubject: A stop job for unit docker.service has begun execution[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA stop job for unit docker.service has begun execution.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 426201.[0m
+Sep 12 07:54:20 k8-nadz-master dockerd[1105]: time="2025-09-12T07:54:20.882910853Z" level=info msg="Processing signal 'terminated'"
+Sep 12 07:54:30 k8-nadz-master dockerd[1105]: time="2025-09-12T07:54:30.931844124Z" level=info msg="Container failed to exit within 10s of signal 15 - using the force" container=2f002d5fe91e460fa09486aeebf77eacd72645eabd054150fbf196de9941085d
+Sep 12 07:54:30 k8-nadz-master dockerd[1105]: time="2025-09-12T07:54:30.995777215Z" level=info msg="ignoring event" container=2f002d5fe91e460fa09486aeebf77eacd72645eabd054150fbf196de9941085d module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Sep 12 07:54:33 k8-nadz-master dockerd[1105]: time="2025-09-12T07:54:33.132452598Z" level=info msg="stopping event stream following graceful shutdown" error="<nil>" module=libcontainerd namespace=moby
+Sep 12 07:54:33 k8-nadz-master dockerd[1105]: time="2025-09-12T07:54:33.164981923Z" level=info msg="stopping event stream following graceful shutdown" error="context canceled" module=libcontainerd namespace=plugins.moby
+Sep 12 07:54:33 k8-nadz-master dockerd[1105]: time="2025-09-12T07:54:33.177127968Z" level=info msg="Daemon shutdown complete"
+Sep 12 07:54:33 k8-nadz-master systemd[1]: docker.service: Deactivated successfully.
+[0;38;5;245m░░ [0m[0;32mSubject: Unit succeeded[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit docker.service has successfully entered the 'dead' state.[0m
+Sep 12 07:54:33 k8-nadz-master systemd[1]: Stopped docker.service - Docker Application Container Engine.
+[0;38;5;245m░░ [0m[0;32mSubject: A stop job for unit docker.service has finished[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA stop job for unit docker.service has finished.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 426201 and the job result is done.[0m
+Sep 12 07:54:33 k8-nadz-master systemd[1]: docker.service: Consumed 7min 1.672s CPU time, 1.2G memory peak, 5.6M memory swap peak.
+[0;38;5;245m░░ [0m[0;32mSubject: Resources consumed by unit runtime[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit docker.service completed and consumed the indicated resources.[0m
+Sep 12 07:55:08 k8-nadz-master systemd[1]: Starting docker.service - Docker Application Container Engine...
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit docker.service has begun execution[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit docker.service has begun execution.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 426321.[0m
+Sep 12 07:55:08 k8-nadz-master dockerd[213722]: time="2025-09-12T07:55:08.257556496Z" level=info msg="Starting up"
+Sep 12 07:55:08 k8-nadz-master dockerd[213722]: failed to load listeners: no sockets found via socket activation: make sure the service was started by systemd
+Sep 12 07:55:08 k8-nadz-master systemd[1]: [0;1;39m[0;1;31m[0;1;39mdocker.service: Main process exited, code=exited, status=1/FAILURE[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit process exited[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAn ExecStart= process belonging to unit docker.service has exited.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe process' exit code is 'exited' and its exit status is 1.[0m
+Sep 12 07:55:08 k8-nadz-master systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mdocker.service: Failed with result 'exit-code'.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit docker.service has entered the 'failed' state with result 'exit-code'.[0m
+Sep 12 07:55:08 k8-nadz-master systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start docker.service - Docker Application Container Engine.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit docker.service has failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit docker.service has finished with a failure.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 426321 and the job result is failed.[0m
+Sep 12 07:55:10 k8-nadz-master systemd[1]: docker.service: Scheduled restart job, restart counter is at 1.
+[0;38;5;245m░░ [0m[0;32mSubject: Automatic restarting of a unit has been scheduled[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAutomatic restarting of the unit docker.service has been scheduled, as the result for[0m
+[0;38;5;245m░░[0m [0;32mthe configured Restart= setting for the unit.[0m
+Sep 12 07:55:10 k8-nadz-master systemd[1]: Starting docker.service - Docker Application Container Engine...
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit docker.service has begun execution[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit docker.service has begun execution.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 426557.[0m
+Sep 12 07:55:10 k8-nadz-master dockerd[213796]: time="2025-09-12T07:55:10.473611304Z" level=info msg="Starting up"
+Sep 12 07:55:10 k8-nadz-master dockerd[213796]: failed to load listeners: no sockets found via socket activation: make sure the service was started by systemd
+Sep 12 07:55:10 k8-nadz-master systemd[1]: [0;1;39m[0;1;31m[0;1;39mdocker.service: Main process exited, code=exited, status=1/FAILURE[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit process exited[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAn ExecStart= process belonging to unit docker.service has exited.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe process' exit code is 'exited' and its exit status is 1.[0m
+Sep 12 07:55:10 k8-nadz-master systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mdocker.service: Failed with result 'exit-code'.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit docker.service has entered the 'failed' state with result 'exit-code'.[0m
+Sep 12 07:55:10 k8-nadz-master systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start docker.service - Docker Application Container Engine.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit docker.service has failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit docker.service has finished with a failure.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 426557 and the job result is failed.[0m
+Sep 12 07:55:12 k8-nadz-master systemd[1]: docker.service: Scheduled restart job, restart counter is at 2.
+[0;38;5;245m░░ [0m[0;32mSubject: Automatic restarting of a unit has been scheduled[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAutomatic restarting of the unit docker.service has been scheduled, as the result for[0m
+[0;38;5;245m░░[0m [0;32mthe configured Restart= setting for the unit.[0m
+Sep 12 07:55:12 k8-nadz-master systemd[1]: Starting docker.service - Docker Application Container Engine...
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit docker.service has begun execution[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit docker.service has begun execution.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 426676.[0m
+Sep 12 07:55:12 k8-nadz-master dockerd[213828]: time="2025-09-12T07:55:12.726030898Z" level=info msg="Starting up"
+Sep 12 07:55:12 k8-nadz-master dockerd[213828]: failed to load listeners: no sockets found via socket activation: make sure the service was started by systemd
+Sep 12 07:55:12 k8-nadz-master systemd[1]: [0;1;39m[0;1;31m[0;1;39mdocker.service: Main process exited, code=exited, status=1/FAILURE[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit process exited[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAn ExecStart= process belonging to unit docker.service has exited.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe process' exit code is 'exited' and its exit status is 1.[0m
+Sep 12 07:55:12 k8-nadz-master systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mdocker.service: Failed with result 'exit-code'.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit docker.service has entered the 'failed' state with result 'exit-code'.[0m
+Sep 12 07:55:12 k8-nadz-master systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start docker.service - Docker Application Container Engine.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit docker.service has failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit docker.service has finished with a failure.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 426676 and the job result is failed.[0m
+Sep 12 07:55:14 k8-nadz-master systemd[1]: docker.service: Scheduled restart job, restart counter is at 3.
+[0;38;5;245m░░ [0m[0;32mSubject: Automatic restarting of a unit has been scheduled[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAutomatic restarting of the unit docker.service has been scheduled, as the result for[0m
+[0;38;5;245m░░[0m [0;32mthe configured Restart= setting for the unit.[0m
+Sep 12 07:55:14 k8-nadz-master systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mdocker.service: Start request repeated too quickly.[0m
+Sep 12 07:55:14 k8-nadz-master systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mdocker.service: Failed with result 'exit-code'.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit docker.service has entered the 'failed' state with result 'exit-code'.[0m
+Sep 12 07:55:14 k8-nadz-master systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start docker.service - Docker Application Container Engine.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit docker.service has failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit docker.service has finished with a failure.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 426795 and the job result is failed.[0m
+Sep 12 07:55:23 k8-nadz-master systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mdocker.service: Start request repeated too quickly.[0m
+Sep 12 07:55:23 k8-nadz-master systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mdocker.service: Failed with result 'exit-code'.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit docker.service has entered the 'failed' state with result 'exit-code'.[0m
+Sep 12 07:55:23 k8-nadz-master systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start docker.service - Docker Application Container Engine.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit docker.service has failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit docker.service has finished with a failure.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 426914 and the job result is failed.[0m

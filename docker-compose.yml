@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15
+    container_name: db
+    environment:
+      POSTGRES_USER: appuser
+      POSTGRES_PASSWORD: apppass
+      POSTGRES_DB: appdb
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - appnet
+
+  backend:
+    build: ./backend
+    container_name: backend
+    environment:
+      DB_HOST: db
+      DB_NAME: appdb
+      DB_USER: appuser
+      DB_PASS: apppass
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    networks:
+      - appnet
+
+  frontend:
+    image: nginx:alpine
+    container_name: frontend
+    volumes:
+      - ./frontend:/usr/share/nginx/html:ro
+    ports:
+      - "8080:80"
+    networks:
+      - appnet
+
+volumes:
+  db_data:
+
+networks:
+  appnet:
