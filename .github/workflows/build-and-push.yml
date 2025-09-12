@@ -30,7 +30,9 @@ jobs:
         with:
           context: ./backend
           push: true
-          tags: ghcr.io/${{ github.repository }}/backend:latest
+          tags: |
+            ghcr.io/${{ github.repository }}/backend:latest
+            ghcr.io/${{ github.repository }}/backend:v1
 
       - name: Build and Push Frontend
         uses: docker/build-push-action@v4
