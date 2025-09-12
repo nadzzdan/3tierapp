@@ -5,7 +5,7 @@ on:
     tags:
       - "v*.*.*"
       - "v*.*.*-alpha"
-#test
+#test test
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
