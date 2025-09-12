@@ -1,8 +1,5 @@
-FROM node:20-alpine AS build
+FROM node:20-bullseye AS build
 WORKDIR /app
-
-# Install build tools (needed for some npm packages)
-RUN apk add --no-cache python3 make g++
 
 COPY package*.json ./
 RUN npm install
