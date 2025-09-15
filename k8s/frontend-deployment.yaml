@@ -11,10 +11,13 @@ spec:
     metadata:
       labels:
         app: frontend
+      annotations:
+        timestamp: "2024-12-19T12:00:00Z"
     spec:
       containers:
         - name: frontend
           image: ghcr.io/nadzzdan/frontend:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
           readinessProbe:
