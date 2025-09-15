@@ -14,14 +14,25 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: postgres:15
+          image: ghcr.io/nadzzdan/3tierapp/database:latest
           ports:
             - containerPort: 5432
-          envFrom:
-            - configMapRef:
-                name: app-config
-            - secretRef:
-                name: app-secret
+          env:
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: DB_USER
+            - name: POSTGRES_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: DB_NAME
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: DB_PASS
           volumeMounts:
             - name: postgres-storage
               mountPath: /var/lib/postgresql/data
@@ -40,7 +51,9 @@ kind: Service
 metadata:
   name: postgres
 spec:
+  type: ClusterIP
   ports:
     - port: 5432
+      targetPort: 5432
   selector:
     app: postgres
