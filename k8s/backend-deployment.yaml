@@ -12,9 +12,13 @@ spec:
       labels:
         app: backend
     spec:
+      initContainers:
+      - name: wait-for-db
+        image: busybox:1.35
+        command: ['sh', '-c', 'until nc -z postgres 5432; do echo waiting for postgres; sleep 2; done;']
       containers:
         - name: backend
-          image: ghcr.io/nadzzdan/3tierapp/backend:latest
+          image: ghcr.io/nadzzdan/backend:latest
           ports:
             - containerPort: 8000
           env:
@@ -42,13 +46,13 @@ spec:
             httpGet:
               path: /health
               port: 8000
-            initialDelaySeconds: 5
+            initialDelaySeconds: 10
             periodSeconds: 5
           livenessProbe:
             httpGet:
               path: /health
               port: 8000
-            initialDelaySeconds: 15
+            initialDelaySeconds: 20
             periodSeconds: 20
 ---
 apiVersion: v1
