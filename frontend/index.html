@@ -1,44 +1,426 @@
 <!DOCTYPE html>
-<html>
-<head><meta charset="utf-8"><title>3-Tier App</title></head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Manager - 3-Tier App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .form-container {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+
+        .form-container:hover {
+            border-color: #667eea;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .input-field {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .submit-btn {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .texts-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            border: 2px solid #e9ecef;
+        }
+
+        .texts-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .texts-header h3 {
+            color: #333;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .text-count {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .text-list {
+            list-style: none;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .text-item {
+            background: white;
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            animation: fadeInUp 0.5s ease-out;
+            transition: all 0.3s ease;
+        }
+
+        .text-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .text-content {
+            color: #333;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        .empty-state-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            opacity: 0.5;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            color: #667eea;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #c3e6cb;
+            display: none;
+        }
+
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #f5c6cb;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            .form-group {
+                flex-direction: column;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
 <body>
-  <h2>Input Text here</h2>
-  <form id="textForm">
-    <input type="text" id="userText" placeholder="Enter text" required />
-    <button type="submit">Submit butt</button>
-  </form>
+    <div class="container">
+        <div class="header">
+            <h1>📝 Text Manager</h1>
+            <p>Store and manage your text entries with ease</p>
+        </div>
 
-  <h3>Stored Texts:</h3>
-  <ul id="textList"></ul>
+        <div class="success-message" id="successMessage">
+            ✅ Text added successfully!
+        </div>
 
-  <script>
-    const apiUrl = "http://backend:8000"; // Connect to backend service
+        <div class="error-message" id="errorMessage">
+            ❌ Error occurred. Please try again.
+        </div>
 
-    document.getElementById("textForm").addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const text = document.getElementById("userText").value;
-      await fetch(`${apiUrl}/submit`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text })
-      });
-      document.getElementById("userText").value = "";
-      loadTexts();
-    });
+        <div class="form-container">
+            <form id="textForm">
+                <div class="form-group">
+                    <input 
+                        type="text" 
+                        id="userText" 
+                        class="input-field" 
+                        placeholder="Enter your text here..." 
+                        required 
+                    />
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        Add Text
+                    </button>
+                </div>
+            </form>
+        </div>
 
-    async function loadTexts() {
-      const res = await fetch(`${apiUrl}/texts`);
-      const data = await res.json();
-      const list = document.getElementById("textList");
-      list.innerHTML = "";
-      data.forEach(t => {
-        const li = document.createElement("li");
-        li.textContent = t;
-        list.appendChild(li);
-      });
-    }
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Loading texts...</p>
+        </div>
 
-    loadTexts();
-  </script>
+        <div class="texts-section">
+            <div class="texts-header">
+                <h3>📋 Stored Texts</h3>
+                <span class="text-count" id="textCount">0 items</span>
+            </div>
+            <ul class="text-list" id="textList">
+                <li class="empty-state">
+                    <div class="empty-state-icon">📝</div>
+                    <p>No texts stored yet. Add your first text above!</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const apiUrl = "http://backend:8000";
+        const textForm = document.getElementById("textForm");
+        const userText = document.getElementById("userText");
+        const textList = document.getElementById("textList");
+        const textCount = document.getElementById("textCount");
+        const submitBtn = document.getElementById("submitBtn");
+        const loading = document.getElementById("loading");
+        const successMessage = document.getElementById("successMessage");
+        const errorMessage = document.getElementById("errorMessage");
+
+        function showMessage(message, isError = false) {
+            const messageEl = isError ? errorMessage : successMessage;
+            messageEl.style.display = 'block';
+            messageEl.textContent = message;
+            setTimeout(() => {
+                messageEl.style.display = 'none';
+            }, 3000);
+        }
+
+        function setLoading(isLoading) {
+            loading.style.display = isLoading ? 'block' : 'none';
+            submitBtn.disabled = isLoading;
+            submitBtn.textContent = isLoading ? 'Adding...' : 'Add Text';
+        }
+
+        textForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const text = userText.value.trim();
+            
+            if (!text) return;
+
+            setLoading(true);
+            hideMessages();
+
+            try {
+                const response = await fetch(`${apiUrl}/submit`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ text })
+                });
+
+                if (response.ok) {
+                    userText.value = "";
+                    showMessage("✅ Text added successfully!");
+                    await loadTexts();
+                } else {
+                    throw new Error('Failed to add text');
+                }
+            } catch (error) {
+                showMessage("❌ Error occurred. Please try again.", true);
+            } finally {
+                setLoading(false);
+            }
+        });
+
+        async function loadTexts() {
+            setLoading(true);
+            
+            try {
+                const response = await fetch(`${apiUrl}/texts`);
+                const data = await response.json();
+                
+                textList.innerHTML = "";
+                
+                if (data.length === 0) {
+                    textList.innerHTML = `
+                        <li class="empty-state">
+                            <div class="empty-state-icon">📝</div>
+                            <p>No texts stored yet. Add your first text above!</p>
+                        </li>
+                    `;
+                } else {
+                    data.forEach((text, index) => {
+                        const li = document.createElement("li");
+                        li.className = "text-item";
+                        li.innerHTML = `
+                            <div class="text-content">${text}</div>
+                        `;
+                        textList.appendChild(li);
+                    });
+                }
+                
+                textCount.textContent = `${data.length} item${data.length !== 1 ? 's' : ''}`;
+            } catch (error) {
+                textList.innerHTML = `
+                    <li class="empty-state">
+                        <div class="empty-state-icon">⚠️</div>
+                        <p>Error loading texts. Please refresh the page.</p>
+                    </li>
+                `;
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        function hideMessages() {
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+        }
+
+        // Load texts on page load
+        loadTexts();
+    </script>
 </body>
 </html>
