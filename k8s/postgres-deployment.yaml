@@ -12,6 +12,13 @@ spec:
       labels:
         app: postgres
     spec:
+      initContainers:
+      - name: init-postgres-data
+        image: busybox:1.35
+        command: ['sh', '-c', 'mkdir -p /var/lib/postgresql/data && chown -R 999:999 /var/lib/postgresql/data']
+        volumeMounts:
+        - name: postgres-storage
+          mountPath: /var/lib/postgresql
       containers:
         - name: postgres
           image: ghcr.io/nadzzdan/database:latest
@@ -35,7 +42,7 @@ spec:
                   key: DB_PASS
           volumeMounts:
             - name: postgres-storage
-              mountPath: /var/lib/postgresql/data
+              mountPath: /var/lib/postgresql
             - name: init-script
               mountPath: /docker-entrypoint-initdb.d
       volumes:
