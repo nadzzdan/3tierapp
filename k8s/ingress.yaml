@@ -2,8 +2,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: three-tier-ingress
-  annotations:
-    traefik.ingress.kubernetes.io/router.rule: Host(`three-tier.local`)
 spec:
   ingressClassName: traefik
   rules:
