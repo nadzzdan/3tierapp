@@ -3,23 +3,24 @@ kind: Ingress
 metadata:
   name: three-tier-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    traefik.ingress.kubernetes.io/router.rule: Host(`three-tier.local`)
 spec:
+  ingressClassName: traefik
   rules:
     - host: three-tier.local
       http:
         paths:
-          - path: /(.*)
-            pathType: Prefix
-            backend:
-              service:
-                name: frontend
-                port:
-                  number: 80
-          - path: /api(/|$)(.*)
+          - path: /api
             pathType: Prefix
             backend:
               service:
                 name: backend
                 port:
                   number: 8000
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend
+                port:
+                  number: 80
