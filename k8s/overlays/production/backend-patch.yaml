@@ -6,6 +6,10 @@ spec:
   replicas: 2
   template:
     spec:
+      initContainers:
+      - name: wait-for-db
+        image: busybox:1.35
+        command: ['sh', '-c', 'until nc -z prod-postgres 5432; do echo waiting for postgres; sleep 2; done;']
       containers:
         - name: backend
           resources:
