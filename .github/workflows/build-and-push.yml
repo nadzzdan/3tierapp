@@ -60,12 +60,29 @@ jobs:
 
       - name: Update Kustomize image tags
         run: |
+          echo "Current tag: ${{ github.ref_name }}"
           cd k8s/overlays/production
-          sed -i "s/newTag: latest/newTag: ${{ github.ref_name }}/" kustomization.yaml
           
-          # Commit and push the changes
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add kustomization.yaml
-          git commit -m "Update image tags to ${{ github.ref_name }}"
-          git push origin main
+          # Show current content
+          echo "Current kustomization.yaml content:"
+          cat kustomization.yaml
+          
+          # Update the tags
+          sed -i "s/newTag: latest/newTag: ${{ github.ref_name }}/g" kustomization.yaml
+          
+          # Show updated content
+          echo "Updated kustomization.yaml content:"
+          cat kustomization.yaml
+          
+          # Check if there are changes
+          if git diff --quiet kustomization.yaml; then
+            echo "No changes detected in kustomization.yaml"
+          else
+            echo "Changes detected, committing..."
+            # Commit and push the changes
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git add kustomization.yaml
+            git commit -m "Update image tags to ${{ github.ref_name }}"
+            git push origin main
+          fi
