@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  replicas: 3
+  template:
+    metadata:
+      annotations:
+        timestamp: "2024-12-19T12:00:00Z"
+    spec:
+      containers:
+        - name: frontend
+          image: ghcr.io/nadzzdan/frontend:latest
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "50m"
+            limits:
+              memory: "128Mi"
+              cpu: "100m"
