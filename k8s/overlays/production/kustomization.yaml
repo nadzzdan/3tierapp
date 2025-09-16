@@ -14,11 +14,11 @@ patchesStrategicMerge:
 
 images:
   - name: ghcr.io/nadzzdan/frontend
-    newTag: latest
+    newTag: v1.0.48
   - name: ghcr.io/nadzzdan/backend
-    newTag: latest
+    newTag: v1.0.48
   - name: ghcr.io/nadzzdan/database
-    newTag: latest
+    newTag: v1.0.48
 
 namePrefix: prod-
 namespace: production
