@@ -1,0 +1,3 @@
+[33mf57cd8a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m Fix ingress routing for API endpoints - ArgoCD sync
+[33m4d80691[m Fix ingress routing for API endpoints
+[33m5c743cf[m[33m ([m[1;33mtag: [m[1;33mv1.0.43[m[33m)[m changes of ingress

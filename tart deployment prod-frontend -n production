@@ -1,5 +1,0 @@
-[33m9727cdf[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;33mtag: [m[1;33mv1.0.40[m[33m, [m[1;31morigin/main[m[33m)[m Fix frontend API URL to use prod-backend service name
-[33m569cc4a[m Fix init container to use prod-postgres hostname
-[33m0adae92[m Fix DB_HOST in production overlay to use prod-postgres service name
-[33m2700a9a[m using of overlay2
-[33mf5b9481[m[33m ([m[1;33mtag: [m[1;33mv1.0.38[m[33m)[m using of overlay
