@@ -3,4 +3,5 @@ kind: Ingress
 metadata:
   name: three-tier-ingress
   annotations:
-    traefik.ingress.kubernetes.io/rewrite-target: /$2
+    traefik.ingress.kubernetes.io/rewrite-target: /
+    traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
