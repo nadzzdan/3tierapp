@@ -8,7 +8,7 @@ spec:
     - host: three-tier.local
       http:
         paths:
-          - path: /api(/|$)(.*)
+          - path: /api
             pathType: Prefix
             backend:
               service:

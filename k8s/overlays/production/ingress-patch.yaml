@@ -5,3 +5,4 @@ metadata:
   annotations:
     traefik.ingress.kubernetes.io/rewrite-target: /
     traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+    traefik.ingress.kubernetes.io/priority: "100"
