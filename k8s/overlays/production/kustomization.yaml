@@ -10,6 +10,7 @@ patchesStrategicMerge:
   - backend-patch.yaml
   - postgres-patch.yaml
   - configmap-patch.yaml
+  - ingress-patch.yaml
 
 images:
   - name: ghcr.io/nadzzdan/frontend

@@ -19,10 +19,12 @@ def get_conn():
     )
 
 @app.get("/health")
+@app.get("/api/health")
 def health():
     return {"status": "ok"}
 
 @app.post("/submit")
+@app.post("/api/submit")
 def submit_text(item: TextInput):
     conn = get_conn()
     cur = conn.cursor()
@@ -33,6 +35,7 @@ def submit_text(item: TextInput):
     return {"status": "success"}
 
 @app.get("/texts")
+@app.get("/api/texts")
 def get_texts():
     conn = get_conn()
     cur = conn.cursor()
