@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: ghcr.io/nadzzdan/frontend:latest
+          image: ghcr.io/nadzzdan/frontend
           imagePullPolicy: Always
           ports:
             - containerPort: 80

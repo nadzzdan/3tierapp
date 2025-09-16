@@ -20,7 +20,7 @@ spec:
         command: ['sh', '-c', 'until nc -z postgres 5432; do echo waiting for postgres; sleep 2; done;']
       containers:
         - name: backend
-          image: ghcr.io/nadzzdan/backend:latest
+          image: ghcr.io/nadzzdan/backend
           imagePullPolicy: Always
           ports:
             - containerPort: 8000

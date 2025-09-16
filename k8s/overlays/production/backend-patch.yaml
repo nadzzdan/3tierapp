@@ -5,6 +5,9 @@ metadata:
 spec:
   replicas: 2
   template:
+    metadata:
+      annotations:
+        timestamp: "2024-12-19T12:00:00Z"
     spec:
       initContainers:
       - name: wait-for-db
@@ -12,6 +15,8 @@ spec:
         command: ['sh', '-c', 'until nc -z prod-postgres 5432; do echo waiting for postgres; sleep 2; done;']
       containers:
         - name: backend
+          image: ghcr.io/nadzzdan/backend:latest
+          imagePullPolicy: Always
           resources:
             requests:
               memory: "128Mi"
