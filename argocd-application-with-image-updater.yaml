@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 3tierapp
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: frontend=ghcr.io/nadzzdan/frontend,backend=ghcr.io/nadzzdan/backend,database=ghcr.io/nadzzdan/database
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/git-branch: main
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/nadzzdan/3tierapp.git
+    path: k8s/overlays/production
+    targetRevision: HEAD
+    kustomize: {}  # <-- tells Argo CD this is a Kustomize app
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: production
+  syncPolicy:
+    automated:
+      allowEmpty: false
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=true
+      - CreateNamespace=false
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
